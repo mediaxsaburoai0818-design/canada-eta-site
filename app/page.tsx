@@ -14,12 +14,12 @@ export default function Home() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#8B0000]/85 via-[#8B0000]/60 to-transparent" />
+          <div className="absolute inset-0 bg-[#1a1a1a]/70" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 py-20">
           <div className="max-w-2xl">
             <span className="inline-block bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-              🍁 Elektroniczna Autoryzacja Podróży do Kanady
+               Elektroniczna Autoryzacja Podróży do Kanady
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-6 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
               Canada eTA — Twój klucz do podróży po Kanadzie
@@ -41,7 +41,7 @@ export default function Home() {
             {[
               { value: "CAD $7", label: "Opłata za eTA", icon: "" },
               { value: "Kilka minut", label: "Czas rozpatrzenia", icon: "" },
-              { value: "5 lat", label: "Okres ważności", icon: "📅" },
+              { value: "5 lat", label: "Okres ważności", icon: "" },
               { value: "6 miesięcy", label: "Maksymalny pobyt", icon: "" },
             ].map((stat, i) => (
               <div
@@ -76,7 +76,7 @@ export default function Home() {
               {
                 title: "Szybki proces",
                 desc: "Wniosek o eTA wypełnisz online w kilka minut. Większość autoryzacji jest wydawana niemal natychmiast.",
-                icon: "🚀",
+                icon: "",
               },
               {
                 title: "Niski koszt",
@@ -223,11 +223,11 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: "Czym jest eTA?", desc: "Poznaj szczegóły dotyczące elektronicznej autoryzacji podróży do Kanady.", href: "/eta-info/what-is-eta/", icon: "" },
-              { title: "Wymagane dokumenty", desc: "Lista dokumentów potrzebnych do złożenia wniosku o eTA.", href: "/eta-info/required-documents/", icon: "📄" },
+              { title: "Wymagane dokumenty", desc: "Lista dokumentów potrzebnych do złożenia wniosku o eTA.", href: "/eta-info/required-documents/", icon: "" },
               { title: "Sprawdź status wniosku", desc: "Dowiedz się jak sprawdzić aktualny status Twojego wniosku.", href: "/eta-info/status-check/", icon: "" },
-              { title: "Tranzyt przez Kanadę", desc: "Informacje o wymaganiach eTA przy przesiadkach w Kanadzie.", href: "/eta-info/transit/", icon: "🔄" },
+              { title: "Tranzyt przez Kanadę", desc: "Informacje o wymaganiach eTA przy przesiadkach w Kanadzie.", href: "/eta-info/transit/", icon: "" },
               { title: "Strona rządu Kanady", desc: "Link do oficjalnej strony kanadyjskiego rządu dot. eTA.", href: "/eta-info/official-canada/", icon: "" },
-              { title: "Polonia w Kanadzie", desc: "Informacje o polskiej społeczności w Kanadzie — ok. 1,2 mln osób.", href: "/eta-info/polish-community/", icon: "🇵🇱" },
+              { title: "Polonia w Kanadzie", desc: "Informacje o polskiej społeczności w Kanadzie — ok. 1,2 mln osób.", href: "/eta-info/polish-community/", icon: "" },
             ].map((item, i) => (
               <Link
                 key={i}
