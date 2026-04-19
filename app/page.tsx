@@ -16,19 +16,25 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-[#1a1a1a]/70" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 py-20">
-          <div className="max-w-2xl">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 text-center">
+          <div className="max-w-3xl mx-auto">
             <span className="inline-block bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-               Elektroniczna Autoryzacja Podróży do Kanady
+               Elektroniczna Autoryzacja Podrozy do Kanady
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-6 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Canada eTA — Twój klucz do podróży po Kanadzie
+            <h1 className="text-3xl md:text-5xl text-white font-bold mb-6 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Canada eTA — Twoj klucz do podrozy po Kanadzie
             </h1>
             <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-              Obywatele Polski mogą ubiegać się o elektroniczną autoryzację podróży (eTA) do Kanady. Szybko, prosto i online — dowiedz się jak.
+              Obywatele Polski moga ubiegac sie o elektroniczna autoryzacje podrozy (eTA) do Kanady. Szybko, prosto i online.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              
+            <div style={{ maxWidth: "360px", margin: "0 auto" }}>
+              <Link
+                href="/eta-info/application/"
+                className="block w-full rounded text-center transition shadow-lg"
+                style={{ color: "white", textDecoration: "none", padding: "18px 24px", backgroundColor: "#8B0000" }}
+              >
+                <span style={{ color: "white", fontSize: "18px", fontWeight: "bold" }}>Zloz wniosek eTA</span>
+              </Link>
             </div>
           </div>
         </div>
