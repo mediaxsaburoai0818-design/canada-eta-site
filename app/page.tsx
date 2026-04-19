@@ -28,18 +28,7 @@ export default function Home() {
               Obywatele Polski mogą ubiegać się o elektroniczną autoryzację podróży (eTA) do Kanady. Szybko, prosto i online — dowiedz się jak.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/eta-info/application/"
-                className="inline-block bg-white text-[#8B0000] px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/90 transition-colors shadow-lg text-center"
-              >
-                Jak złożyć wniosek
-              </Link>
-              <Link
-                href="/eta-info/what-is-eta/"
-                className="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-colors text-center"
-              >
-                Dowiedz się więcej
-              </Link>
+              
             </div>
           </div>
         </div>
@@ -50,10 +39,10 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { value: "CAD $7", label: "Opłata za eTA", icon: "💰" },
-              { value: "Kilka minut", label: "Czas rozpatrzenia", icon: "⚡" },
+              { value: "CAD $7", label: "Opłata za eTA", icon: "" },
+              { value: "Kilka minut", label: "Czas rozpatrzenia", icon: "" },
               { value: "5 lat", label: "Okres ważności", icon: "📅" },
-              { value: "6 miesięcy", label: "Maksymalny pobyt", icon: "✈️" },
+              { value: "6 miesięcy", label: "Maksymalny pobyt", icon: "" },
             ].map((stat, i) => (
               <div
                 key={i}
@@ -92,12 +81,12 @@ export default function Home() {
               {
                 title: "Niski koszt",
                 desc: "Opłata za eTA wynosi zaledwie CAD $7 (ok. 22 PLN). Płatność kartą kredytową lub debetową.",
-                icon: "💳",
+                icon: "",
               },
               {
                 title: "Długa ważność",
                 desc: "eTA jest ważna przez 5 lat lub do wygaśnięcia paszportu — w zależności co nastąpi wcześniej.",
-                icon: "🛡️",
+                icon: "",
               },
             ].map((item, i) => (
               <div
@@ -233,11 +222,11 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Czym jest eTA?", desc: "Poznaj szczegóły dotyczące elektronicznej autoryzacji podróży do Kanady.", href: "/eta-info/what-is-eta/", icon: "📋" },
+              { title: "Czym jest eTA?", desc: "Poznaj szczegóły dotyczące elektronicznej autoryzacji podróży do Kanady.", href: "/eta-info/what-is-eta/", icon: "" },
               { title: "Wymagane dokumenty", desc: "Lista dokumentów potrzebnych do złożenia wniosku o eTA.", href: "/eta-info/required-documents/", icon: "📄" },
-              { title: "Sprawdź status wniosku", desc: "Dowiedz się jak sprawdzić aktualny status Twojego wniosku.", href: "/eta-info/status-check/", icon: "🔍" },
+              { title: "Sprawdź status wniosku", desc: "Dowiedz się jak sprawdzić aktualny status Twojego wniosku.", href: "/eta-info/status-check/", icon: "" },
               { title: "Tranzyt przez Kanadę", desc: "Informacje o wymaganiach eTA przy przesiadkach w Kanadzie.", href: "/eta-info/transit/", icon: "🔄" },
-              { title: "Strona rządu Kanady", desc: "Link do oficjalnej strony kanadyjskiego rządu dot. eTA.", href: "/eta-info/official-canada/", icon: "🏛️" },
+              { title: "Strona rządu Kanady", desc: "Link do oficjalnej strony kanadyjskiego rządu dot. eTA.", href: "/eta-info/official-canada/", icon: "" },
               { title: "Polonia w Kanadzie", desc: "Informacje o polskiej społeczności w Kanadzie — ok. 1,2 mln osób.", href: "/eta-info/polish-community/", icon: "🇵🇱" },
             ].map((item, i) => (
               <Link
