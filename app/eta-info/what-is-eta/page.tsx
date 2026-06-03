@@ -1,107 +1,184 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
-import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Czym jest kanadyjska eTA? — Canada eTA Online",
-  description: "Dowiedz się czym jest eTA (Electronic Travel Authorization) — elektroniczna autoryzacja podróży wymagana przez rząd Kanady od obywateli Polski.",
+  title: "Czym jest Canada eTA? Kompletny przewodnik 2026",
+  description:
+    "Canada eTA (Electronic Travel Authorization) to elektroniczna autoryzacja podrozy do Kanady. Procedura, oplata $7 CAD, waznosc do 5 lat, decyzja zwykle w kilka minut.",
 };
 
-export default function WhatIsEtaPage() {
+export default function WhatIsEta() {
   return (
-    <>
-      <PageHero
-        title="Czym jest kanadyjska eTA?"
-        subtitle="Kompleksowy przewodnik po elektronicznej autoryzacji podróży do Kanady"
-      />
-      <Breadcrumb items={[{ label: "Informacje o eTA", href: "/eta-info/what-is-eta/" }, { label: "Czym jest eTA?" }]} />
+    <div>
+      {/* Header */}
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 pt-12 pb-8">
+          <Breadcrumb
+            items={[
+              { label: "Informacje o eTA Kanada", href: "/eta-info/what-is-eta/" },
+              { label: "Czym jest eTA Kanada?" },
+            ]}
+          />
+          <h1
+            className="text-3xl md:text-4xl font-bold text-[#1F1A14] mb-6"
+            style={{ fontFamily: "var(--font-noto-serif), serif" }}
+          >
+            Czym jest eTA Kanada?
+          </h1>
+          <img
+            src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80"
+            alt="Kanada - Jezioro Moraine i panorama gór"
+            className="w-full h-64 object-cover rounded mb-6"
+          />
+          <p className="text-gray-600 leading-relaxed">
+            eTA Kanada (Electronic Travel Authorization (eTA Canada)) to elektroniczna autoryzacja
+            podróży wprowadzona przez Immigration, Refugees and Citizenship Canada (IRCC).
+            System ten wymaga od podróżnych z krajów objętych ruchem bezwizowym
+            uzyskania cyfrowego zezwolenia przed podróżą lotniczą do Kanady.
+          </p>
+        </div>
+      </section>
 
-      <section className="py-12 md:py-16">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="prose prose-lg max-w-none">
-            <div className="bg-[#FFF5F5] border-l-4 border-[#8B0000] p-6 rounded-r-xl mb-8">
-              <p className="text-gray-700 leading-relaxed m-0">
-                <strong>eTA (Electronic Travel Authorization)</strong> to elektroniczna autoryzacja podróży, która jest wymagana od obywateli krajów zwolnionych z obowiązku wizowego — w tym Polski — przy podróży lotniczej do Kanady lub tranzycie przez terytorium Kanady.
-              </p>
-            </div>
+      {/* Section 1 */}
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Cel systemu eTA Kanada</h2>
+          <p className="text-gray-600 leading-relaxed">
+            System eTA Kanada został wprowadzony w celu wzmocnienia bezpieczeństwa
+            granic Kanady. Pozwala władzom kanadyjskim na
+            weryfikację podróżnych przed ich przybyciem, co usprawnia kontrolę
+            graniczną i zwiększa bezpieczeństwo państwa. eTA jest obowiązkowa dla
+            podróżnych z krajów objętych ruchem bezwizowym, w tym Polski,
+            przybylających do Kanady drogą lotniczą.
+          </p>
+        </div>
+      </section>
 
-            <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Czym dokładnie jest eTA?
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              eTA to system elektronicznej weryfikacji wprowadzony przez rząd Kanady w 2016 roku. Jest to obowiązkowy dokument dla podróżnych z krajów, których obywatele nie potrzebują wizy do wjazdu na terytorium Kanady, ale podróżują drogą lotniczą. eTA jest elektronicznie powiązana z paszportem podróżnego.
-            </p>
+      {/* Section 2 */}
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Kto musi posiadać eTA Kanada?</h2>
+          <p className="text-gray-600 leading-relaxed">
+            eTA Kanada jest wymagana od obywateli państw, które nie potrzebują wizy
+            do krótkich pobytów w Kanadzie. Obejmuje to
+            wszystkich obywateli UE, w tym Polski, podróżujących do Kanady
+            drogą lotniczą.
+          </p>
+        </div>
+      </section>
 
-            <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Kto potrzebuje eTA?
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              eTA jest wymagana od obywateli krajów zwolnionych z obowiązku wizowego, którzy podróżują do Kanady drogą lotniczą. Dotyczy to m.in.:
-            </p>
-            <ul className="space-y-2 mb-6">
-              {["Obywateli Polski", "Obywateli krajów UE/EOG", "Obywateli Australii, Japonii, Korei Południowej", "Innych krajów objętych programem bezwizowym"].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-gray-700">
-                  <span className="text-[#8B0000] mt-1">✓</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-
-            <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Kiedy eTA NIE jest wymagana?
-            </h2>
-            <ul className="space-y-2 mb-6">
-              {[
-                "Przy wjeździe drogą lądową lub morską (np. z USA)",
-                "Przez obywateli USA (wystarczy paszport lub dowód osobisty)",
-                "Przez osoby posiadające ważną wizę kanadyjską",
-                "Przez stałych rezydentów Kanady",
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-gray-700">
-                  <span className="text-gray-400 mt-1">✗</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-
-            <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Kluczowe informacje o eTA
-            </h2>
-
-            <div className="grid sm:grid-cols-2 gap-4 mb-8">
-              {[
-                { label: "Koszt", value: "CAD $7 (ok. 22 PLN)" },
-                { label: "Ważność", value: "5 lat lub do wygaśnięcia paszportu" },
-                { label: "Czas przetwarzania", value: "Zazwyczaj kilka minut" },
-                { label: "Maksymalny pobyt", value: "Do 6 miesięcy na wjazd" },
-                { label: "Wjazdy", value: "Wielokrotne (multiple entry)" },
-                { label: "Cel podróży", value: "Turystyka, biznes, tranzyt" },
-              ].map((item, i) => (
-                <div key={i} className="bg-[#FFF5F5] p-4 rounded-lg border border-red-100">
-                  <div className="text-sm text-gray-500 mb-1">{item.label}</div>
-                  <div className="font-bold text-[#1a1a1a]">{item.value}</div>
-                </div>
-              ))}
-            </div>
-
-            <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              eTA a wiza — jaka jest różnica?
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              eTA to uproszczona forma autoryzacji podróży, znacznie prostsza niż tradycyjna wiza. Nie wymaga wizyty w ambasadzie, rozmowy kwalifikacyjnej ani przedkładania obszernej dokumentacji. Cały proces odbywa się online i trwa zaledwie kilka minut. eTA jest przeznaczona wyłącznie dla obywateli krajów, z którymi Kanada ma umowy bezwizowe.
-            </p>
-
-            <div className="bg-[#8B0000] text-white p-6 rounded-xl mt-10">
-              <h3 className="text-xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Gotowy do złożenia wniosku?</h3>
-              <p className="text-white/80 mb-4">Proces jest szybki i prosty. Dowiedz się jak krok po kroku złożyć wniosek o eTA.</p>
-              <Link href="/eta-info/application/" className="inline-block bg-white text-[#8B0000] px-6 py-3 rounded-lg font-bold hover:bg-white/90 transition-colors">
-                Jak złożyć wniosek →
-              </Link>
-            </div>
+      {/* Section 3 */}
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Kraje UE objęte wymogiem eTA Kanada</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm">
+            {[
+              "Polska", "Niemcy", "Francja", "Hiszpania", "Wlochy", "Holandia",
+              "Belgia", "Austria", "Czechy", "Portugalia", "Szwecja", "Dania",
+              "Finlandia", "Grecja", "Chorwacja", "Rumunia", "Bulgaria", "Wegry",
+              "Slowacja", "Litwa", "Lotwa", "Estonia",
+            ].map((country) => (
+              <span
+                key={country}
+                className="bg-white border border-gray-200 rounded px-3 py-1.5 text-gray-700"
+              >
+                {country}
+              </span>
+            ))}
           </div>
         </div>
       </section>
-    </>
+
+      {/* Section 4 */}
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Kluczowe cechy eTA Kanada</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
+            <li>Cel podróży: turystyka, biznes, odwiedziny rodziny/znajomych lub tranzyt</li>
+            <li>Maksymalny pobyt: 6 miesięcy na każdy wjazd</li>
+            <li>Ważność: 5 lat od daty wydania (lub do wygaśnięcia paszportu)</li>
+            <li>Opłata: CAD $7</li>
+            <li>Wielokrotne wjazdy w okresie ważności</li>
+            <li>Wymagany paszport biometryczny</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Section 5 */}
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">eTA Kanada a wiza &mdash; różnice</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-gray-200">
+              <thead className="bg-white">
+                <tr>
+                  <th className="text-left p-3 border-b border-gray-200 font-bold text-[#1F1A14]">Kryterium</th>
+                  <th className="text-left p-3 border-b border-gray-200 font-bold text-[#1F1A14]">eTA Kanada</th>
+                  <th className="text-left p-3 border-b border-gray-200 font-bold text-[#1F1A14]">Wiza kanadyjska</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="p-3 border-b border-gray-100">Koszt</td>
+                  <td className="p-3 border-b border-gray-100">CAD $7</td>
+                  <td className="p-3 border-b border-gray-100">od CAD $100</td>
+                </tr>
+                <tr>
+                  <td className="p-3 border-b border-gray-100">Czas rozpatrywania</td>
+                  <td className="p-3 border-b border-gray-100">Zazwyczaj kilka minut</td>
+                  <td className="p-3 border-b border-gray-100">Tygodnie / miesiące</td>
+                </tr>
+                <tr>
+                  <td className="p-3 border-b border-gray-100">Maksymalny pobyt</td>
+                  <td className="p-3 border-b border-gray-100">6 miesięcy</td>
+                  <td className="p-3 border-b border-gray-100">Zależy od typu</td>
+                </tr>
+                <tr>
+                  <td className="p-3 border-b border-gray-100">Ważność</td>
+                  <td className="p-3 border-b border-gray-100">5 lat</td>
+                  <td className="p-3 border-b border-gray-100">Zależy od typu</td>
+                </tr>
+                <tr>
+                  <td className="p-3">Wizyta w centrum wizowym</td>
+                  <td className="p-3">Nie</td>
+                  <td className="p-3">Tak</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-white border-l-4 border-[#8B1A1A] p-4 rounded-r mt-6">
+            <p className="text-sm text-gray-700">
+              <strong>Ważne:</strong> eTA Kanada nie gwarantuje wjazdu do Kanady.
+              Ostateczną decyzję o wjeździe podejmuje funkcjonariusz
+              straży granicznej (Canada Border Services Agency - CBSA) po przybyciu.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link
+              href="/eta-info/application/"
+              className="bg-[#8B1A1A] hover:bg-[#0a3a6b] text-white px-6 py-3 rounded font-bold text-sm transition text-center"
+            >
+              Jak złożyć wniosek &rarr;
+            </Link>
+            <a
+              href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full max-w-md mx-auto bg-[#8d1812] hover:bg-[#6d120e] rounded-xl border-2 border-white py-5 px-6 text-center transition shadow-lg"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <span className="text-white text-lg font-bold" style={{ color: "white" }}>Złóż wniosek o eTA Kanada</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

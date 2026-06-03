@@ -1,126 +1,168 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
-import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Opłata za eTA do Kanady — CAD $7 — Canada eTA Online",
-  description: "Opłata za kanadyjską eTA wynosi CAD $7 (ok. 22 PLN). Dowiedz się o akceptowanych formach płatności i co jest wliczone w cenę.",
+  title: "Oplata Canada eTA 2026 $7 CAD - sposoby platnosci i koszty",
+  description:
+    "Aktualna oplata Canada eTA 2026 wynosi $7 CAD. Jednorazowa platnosc, waznosc do 5 lat, bez ukrytych kosztow.",
 };
 
-export default function FeePage() {
+export default function Fee() {
   return (
-    <>
-      <PageHero
-        title="Opłata za eTA do Kanady"
-        subtitle="CAD $7 — jedna z najniższych opłat za autoryzację podróży na świecie"
-      />
-      <Breadcrumb items={[{ label: "Informacje o eTA", href: "/eta-info/what-is-eta/" }, { label: "Opłaty" }]} />
+    <div>
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 pt-12 pb-8">
+          <Breadcrumb
+            items={[
+              { label: "Informacje o eTA Kanada", href: "/eta-info/what-is-eta/" },
+              { label: "Opłaty" },
+            ]}
+          />
+          <h1
+            className="text-3xl md:text-4xl font-bold text-[#1F1A14] mb-6"
+            style={{ fontFamily: "var(--font-noto-serif), serif" }}
+          >
+            Opłaty za wniosek eTA Kanada
+          </h1>
+          <p className="text-gray-600 leading-relaxed">
+            Oficjalna opłata za złożenie wniosku eTA Kanada wynosi <strong>CAD $7</strong> (około 21 PLN).
+            Poniżej przedstawiamy szczegółowe informacje o kosztach i metodach płatności.
+          </p>
+        </div>
+      </section>
 
-      <section className="py-12 md:py-16">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-white border-2 border-[#8B0000] rounded-2xl p-8 mb-10 text-center shadow-lg">
-            <div className="text-sm text-gray-500 mb-2 uppercase tracking-wider">Oficjalna opłata rządowa</div>
-            <div className="text-5xl md:text-6xl font-bold text-[#8B0000] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-              CAD $7
-            </div>
-            <div className="text-lg text-gray-600">
-              Około <strong>22 złotych polskich</strong> (PLN)
-            </div>
-            <div className="text-sm text-gray-400 mt-2">
-              Kurs orientacyjny — rzeczywisty kurs może się różnić
-            </div>
-          </div>
-
-          <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Co obejmuje opłata?
-          </h2>
-          <ul className="space-y-3 mb-8">
-            {[
-              "Rozpatrzenie wniosku o eTA",
-              "Elektroniczna autoryzacja podróży ważna do 5 lat",
-              "Wielokrotne wjazdy do Kanady w okresie ważności",
-              "Powiadomienie e-mailowe o statusie wniosku",
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-gray-700">
-                <span className="text-[#8B0000] mt-1">✓</span>
-                {item}
-              </li>
-            ))}
-          </ul>
-
-          <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Akceptowane formy płatności
-          </h2>
-          <div className="grid sm:grid-cols-3 gap-4 mb-8">
-            {[
-              { name: "Visa", icon: "💳" },
-              { name: "Mastercard", icon: "💳" },
-              { name: "American Express", icon: "💳" },
-            ].map((card, i) => (
-              <div key={i} className="bg-[#FFF5F5] p-5 rounded-xl text-center border border-red-100">
-                <span className="text-3xl block mb-2">{card.icon}</span>
-                <span className="font-bold text-[#1a1a1a]">{card.name}</span>
-              </div>
-            ))}
-          </div>
-
-          <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Porównanie kosztów z innymi autoryzacjami
-          </h2>
-          <div className="overflow-x-auto mb-8">
-            <table className="w-full border-collapse rounded-xl overflow-hidden">
-              <thead>
-                <tr className="bg-[#8B0000] text-white">
-                  <th className="px-4 py-3 text-left font-bold">Autoryzacja</th>
-                  <th className="px-4 py-3 text-left font-bold">Kraj</th>
-                  <th className="px-4 py-3 text-left font-bold">Koszt</th>
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Struktura opłaty</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-gray-200 bg-white">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="text-left p-3 border-b border-gray-200 font-bold text-[#1F1A14]">Składnik</th>
+                  <th className="text-left p-3 border-b border-gray-200 font-bold text-[#1F1A14]">Kwota</th>
+                  <th className="text-left p-3 border-b border-gray-200 font-bold text-[#1F1A14]">Opis</th>
                 </tr>
               </thead>
               <tbody>
-                {[
-                  { auth: "eTA", country: "Kanada", cost: "CAD $7 (ok. 22 PLN)", highlight: true },
-                  { auth: "ESTA", country: "USA", cost: "USD $21 (ok. 84 PLN)", highlight: false },
-                  { auth: "ETA", country: "Australia", cost: "AUD $20 (ok. 52 PLN)", highlight: false },
-                  { auth: "NZeTA", country: "Nowa Zelandia", cost: "NZD $17 (ok. 42 PLN)", highlight: false },
-                  { auth: "ETIAS", country: "UE (planowane)", cost: "EUR 7 (ok. 30 PLN)", highlight: false },
-                ].map((row, i) => (
-                  <tr key={i} className={`border-b border-gray-100 ${row.highlight ? "bg-[#FFF5F5] font-bold" : "bg-white"}`}>
-                    <td className="px-4 py-3">{row.auth}</td>
-                    <td className="px-4 py-3">{row.country}</td>
-                    <td className="px-4 py-3">{row.cost}</td>
-                  </tr>
-                ))}
+                <tr>
+                  <td className="p-3 border-b border-gray-100">Opłata za wniosek eTA</td>
+                  <td className="p-3 border-b border-gray-100">CAD $7</td>
+                  <td className="p-3 border-b border-gray-100">Opłata za rozpatrzenie i wydanie autoryzacji</td>
+                </tr>
+                <tr className="font-bold">
+                  <td className="p-3">Razem</td>
+                  <td className="p-3">CAD $7</td>
+                  <td className="p-3">Całkowita opłata za wniosek</td>
+                </tr>
               </tbody>
             </table>
           </div>
-
-          <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 mb-8">
-            <h3 className="font-bold text-[#1a1a1a] mb-2">⚠️ Uwaga na nieoficjalne strony</h3>
-            <p className="text-gray-700 text-sm leading-relaxed">
-              Oficjalna opłata za eTA wynosi <strong>CAD $7</strong>. Niektóre strony internetowe podszywające się pod oficjalne serwisy mogą pobierać znacznie wyższe opłaty za &quot;pomoc&quot; w wypełnieniu wniosku. Zawsze korzystaj z oficjalnej strony rządu Kanady.
-            </p>
-          </div>
-
-          <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Czy opłata jest zwracana?
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Opłata za eTA jest <strong>bezzwrotna</strong>, niezależnie od wyniku rozpatrzenia wniosku. Nawet w przypadku odmowy wydania eTA, opłata nie podlega zwrotowi. Dlatego ważne jest, aby przed złożeniem wniosku upewnić się, że spełniasz wszystkie wymagania.
-          </p>
-
-          <div className="grid sm:grid-cols-2 gap-4 mt-8">
-            <Link href="/eta-info/application/" className="bg-[#FFF5F5] p-5 rounded-xl border border-red-100 hover:border-[#8B0000]/30 transition-colors group">
-              <h3 className="font-bold text-[#1a1a1a] group-hover:text-[#8B0000] transition-colors">Jak złożyć wniosek →</h3>
-              <p className="text-sm text-gray-500 mt-1">Przewodnik krok po kroku</p>
-            </Link>
-            <Link href="/eta-info/required-documents/" className="bg-[#FFF5F5] p-5 rounded-xl border border-red-100 hover:border-[#8B0000]/30 transition-colors group">
-              <h3 className="font-bold text-[#1a1a1a] group-hover:text-[#8B0000] transition-colors">Wymagane dokumenty →</h3>
-              <p className="text-sm text-gray-500 mt-1">Lista potrzebnych dokumentów</p>
-            </Link>
+          <div className="bg-white border-l-4 border-[#8B1A1A] p-4 rounded-r text-sm mt-4 text-gray-700">
+            <strong>Uwaga:</strong> Opłata CAD $7 jest pobierana w momencie
+            składania wniosku i nie podlega zwrotowi, nawet jeśli wniosek
+            zostanie odrzucony.
           </div>
         </div>
       </section>
-    </>
+
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Przeliczenie na złotówki</h2>
+          <p className="text-gray-600 leading-relaxed">
+            CAD $7 to około 21 PLN (w zależności od aktualnego kursu wymiany).
+            Dokładna kwota w PLN zależy od kursu stosowanego przez bank
+            wydający kartę płatniczą. Może zostać naliczona dodatkowa prowizja
+            za transakcję walutową.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Akceptowane metody płatności</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
+            <li>Karta kredytowa Visa</li>
+            <li>Karta kredytowa Mastercard</li>
+            <li>Karta kredytowa American Express</li>
+            <li>Karta debetowa (z logo Visa, Mastercard, Amex)</li>
+            <li>Karty pre-paid (Visa, Mastercard, American Express)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Czy eTA jest darmowa dla niektórych osób?</h2>
+          <p className="text-gray-600 leading-relaxed">
+            Nie. Opłata CAD $7 dotyczy wszystkich wnioskodawców, niezależnie
+            od obywatelstwa. Nie ma zwolnień z opłaty. Dzieci również muszą
+            posiadać własne eTA i uiścić odrębną opłatę.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Porównanie kosztów: oficjalna strona vs pośrednicy</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-gray-200 bg-white">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="text-left p-3 border-b border-gray-200 font-bold text-[#1F1A14]">Źródło</th>
+                  <th className="text-left p-3 border-b border-gray-200 font-bold text-[#1F1A14]">Koszt</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="p-3 border-b border-gray-100">Oficjalna strona Rządu Kanady (Canada.ca)</td>
+                  <td className="p-3 border-b border-gray-100 font-bold text-green-700">CAD $7</td>
+                </tr>
+                <tr>
+                  <td className="p-3 border-b border-gray-100">Strony pośredników</td>
+                  <td className="p-3 border-b border-gray-100 text-red-600">CAD $50 &mdash; CAD $150+</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-red-50 border-l-4 border-[#8d1812] p-4 rounded-r text-sm mt-4 text-gray-600">
+            <strong>Ostrzeżenie:</strong> Wielu pośredników prowadzi strony
+            internetowe, które wyglądają jak oficjalne strony eTA Kanada. Pobierają
+            zawyżone opłaty za tę samą usługę. Zawsze składaj wniosek
+            bezpośrednio na oficjalnej stronie Rządu Kanady:{" "}
+            <a
+              href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta.html"
+              className="text-[#1F1A14] underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Canada.ca
+            </a>.
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link
+              href="/eta-info/application/"
+              className="bg-[#8B1A1A] hover:bg-[#0a3a6b] text-white px-6 py-3 rounded font-bold text-sm transition text-center"
+            >
+              Jak złożyć wniosek &rarr;
+            </Link>
+            <a
+              href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full max-w-md mx-auto bg-[#8d1812] hover:bg-[#6d120e] rounded-xl border-2 border-white py-5 px-6 text-center transition shadow-lg"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <span className="text-white text-lg font-bold" style={{ color: "white" }}>Złóż wniosek eTA Kanada</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

@@ -1,135 +1,144 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
-import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Wymagane dokumenty do eTA Kanada — Canada eTA Online",
-  description: "Lista dokumentów wymaganych do złożenia wniosku o eTA do Kanady. Paszport, dane osobowe, informacje o podróży.",
+  title: "Wymagane dokumenty Canada eTA 2026 - paszport, karta platnicza",
+  description:
+    "Dokumenty wymagane do wniosku Canada eTA: wazny paszport biometryczny, dane karty platniczej, adres e-mail. Wymagania techniczne i lista pelna.",
 };
 
-export default function RequiredDocumentsPage() {
+export default function RequiredDocuments() {
   return (
-    <>
-      <PageHero
-        title="Wymagane dokumenty"
-        subtitle="Co potrzebujesz do złożenia wniosku o eTA do Kanady"
-      />
-      <Breadcrumb items={[{ label: "Informacje o eTA", href: "/eta-info/what-is-eta/" }, { label: "Wymagane dokumenty" }]} />
-
-      <section className="py-12 md:py-16">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-[#FFF5F5] border-l-4 border-[#8B0000] p-6 rounded-r-xl mb-8">
-            <p className="text-gray-700 leading-relaxed m-0">
-              Wniosek o eTA wymaga stosunkowo niewielkiej ilości dokumentów. Najważniejszy jest ważny paszport. Poniżej znajdziesz pełną listę wymaganych informacji i dokumentów.
-            </p>
-          </div>
-
-          <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-6 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Dokumenty obowiązkowe
-          </h2>
-          <div className="space-y-4 mb-8">
-            {[
-              {
-                icon: "🛂",
-                title: "Ważny paszport biometryczny",
-                details: [
-                  "Paszport musi być ważny przez cały planowany okres pobytu",
-                  "Paszport musi być wydany przez kraj objęty programem bezwizowym (w tym Polska)",
-                  "Numer paszportu, data wydania i data ważności są wymagane",
-                  "Imię i nazwisko muszą być podane zgodnie z paszportem",
-                ],
-              },
-              {
-                icon: "📧",
-                title: "Aktywny adres e-mail",
-                details: [
-                  "Na ten adres otrzymasz potwierdzenie i status wniosku",
-                  "Sprawdź poprawność — błędny adres może uniemożliwić otrzymanie eTA",
-                  "Sprawdzaj również folder spam",
-                ],
-              },
-              {
-                icon: "💳",
-                title: "Karta płatnicza",
-                details: [
-                  "Visa, Mastercard lub American Express",
-                  "Karta kredytowa lub debetowa z funkcją płatności online",
-                  "Opłata wynosi CAD $7",
-                ],
-              },
-            ].map((doc, i) => (
-              <div key={i} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-3xl">{doc.icon}</span>
-                  <h3 className="text-lg font-bold text-[#1a1a1a]">{doc.title}</h3>
-                </div>
-                <ul className="space-y-2 ml-12">
-                  {doc.details.map((detail, j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm text-gray-600">
-                      <span className="text-[#8B0000] mt-0.5">•</span>
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-6 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Informacje wymagane w formularzu
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-4 mb-8">
-            {[
-              { title: "Dane osobowe", items: ["Imię i nazwisko", "Data urodzenia", "Miejsce urodzenia", "Obywatelstwo", "Stan cywilny"] },
-              { title: "Dane paszportowe", items: ["Numer paszportu", "Kraj wydania", "Data wydania", "Data ważności"] },
-              { title: "Dane kontaktowe", items: ["Adres zamieszkania", "Adres e-mail", "Numer telefonu"] },
-              { title: "Informacje o podróży", items: ["Cel podróży", "Planowana data wjazdu", "Adres w Kanadzie (jeśli znany)", "Informacje o locie"] },
-            ].map((group, i) => (
-              <div key={i} className="bg-[#FFF5F5] rounded-xl p-5 border border-red-100">
-                <h3 className="font-bold text-[#1a1a1a] mb-3">{group.title}</h3>
-                <ul className="space-y-1">
-                  {group.items.map((item, j) => (
-                    <li key={j} className="text-sm text-gray-600 flex items-center gap-2">
-                      <span className="text-[#8B0000]">✓</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Dodatkowe dokumenty (w razie potrzeby)
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            W niektórych przypadkach rząd Kanady może poprosić o dodatkowe dokumenty:
+    <div>
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 pt-12 pb-8">
+          <Breadcrumb
+            items={[
+              { label: "Informacje o eTA Kanada", href: "/eta-info/what-is-eta/" },
+              { label: "Wymagane dokumenty" },
+            ]}
+          />
+          <h1
+            className="text-3xl md:text-4xl font-bold text-[#1F1A14] mb-6"
+            style={{ fontFamily: "var(--font-noto-serif), serif" }}
+          >
+            Wymagane dokumenty do wniosku eTA Kanada
+          </h1>
+          <p className="text-gray-600 leading-relaxed">
+            Aby zlozyc wniosek eTA Kanada, musisz przygotowac kilka dokumentow i
+            informacji. Ponizej znajduje sie kompletna lista.
           </p>
-          <ul className="space-y-2 mb-8">
-            {[
-              "Zdjęcie cyfrowe (format paszportowy)",
-              "Wyniki badań medycznych",
-              "Zaświadczenie o niekaralności",
-              "Dokumenty potwierdzające cel podróży",
-              "Dowód wystarczających środków finansowych",
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-gray-700">
-                <span className="text-gray-400 mt-1">○</span>
-                {item}
-              </li>
-            ))}
-          </ul>
+        </div>
+      </section>
 
-          <div className="bg-[#8B0000] text-white p-6 rounded-xl mt-10">
-            <h3 className="text-xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Gotowy do złożenia wniosku?</h3>
-            <p className="text-white/80 mb-4">Mając przygotowane wszystkie dokumenty, cały proces zajmie Ci zaledwie kilka minut.</p>
-            <Link href="/eta-info/application/" className="inline-block bg-white text-[#8B0000] px-6 py-3 rounded-lg font-bold hover:bg-white/90 transition-colors">
-              Jak złożyć wniosek →
-            </Link>
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Dokumenty obowiazkowe</h2>
+          <div className="space-y-4">
+            <div className="border border-gray-200 rounded p-4 bg-white">
+              <h3 className="font-bold text-[#1F1A14] mb-2">1. Wazny paszport</h3>
+              <ul className="list-disc list-inside space-y-1 text-sm text-gray-600">
+                <li>Musi byc wazny na czas planowanego wjazdu do Kanady</li>
+                <li>eTA jest wazna do 5 lat lub do wygasniecia paszportu</li>
+                <li>Paszport tymczasowy moze nie byc akceptowany</li>
+                <li>eTA jest elektronicznie powiazana z konkretnym paszportem</li>
+              </ul>
+            </div>
+            <div className="border border-gray-200 rounded p-4 bg-white">
+              <h3 className="font-bold text-[#1F1A14] mb-2">2. Dane osobowe i kontaktowe</h3>
+              <ul className="list-disc list-inside space-y-1 text-sm text-gray-600">
+                <li>Imie i nazwisko, data urodzenia, obywatelstwo</li>
+                <li>Numer paszportu, data wydania i waznosci</li>
+                <li>Adres zamieszkania</li>
+                <li>Informacje o zatrudnieniu (opcjonalnie)</li>
+              </ul>
+            </div>
+            <div className="border border-gray-200 rounded p-4 bg-white">
+              <h3 className="font-bold text-[#1F1A14] mb-2">3. Adres e-mail</h3>
+              <ul className="list-disc list-inside space-y-1 text-sm text-gray-600">
+                <li>Aktywny adres e-mail do kontaktu</li>
+                <li>Na ten adres otrzymasz potwierdzenie i decyzje</li>
+                <li>Upewnij sie, ze masz dostep do skrzynki</li>
+              </ul>
+            </div>
+            <div className="border border-gray-200 rounded p-4 bg-white">
+              <h3 className="font-bold text-[#1F1A14] mb-2">4. Metoda platnosci</h3>
+              <ul className="list-disc list-inside space-y-1 text-sm text-gray-600">
+                <li>Karta kredytowa lub debetowa (Visa, Mastercard, American Express)</li>
+                <li>Lub karta pre-paid Visa, Mastercard, Amex</li>
+                <li>Oplata: CAD $7</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
-    </>
+
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Informacje wymagane w formularzu</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
+            <li>Dane osobowe (imie, nazwisko, data urodzenia, miejsce urodzenia)</li>
+            <li>Obywatelstwo i podwojne obywatelstwo (jesli dotyczy)</li>
+            <li>Adres zamieszkania</li>
+            <li>Informacje o zatrudnieniu</li>
+            <li>Odpowiedzi na pytania dotyczace kwalifikowalnosci (np. historia imigracyjna, karalnosc)</li>
+            <li>Dane lotu (jesli sa znane w momencie skladania wniosku)</li>
+            <li>Odpowiedzi na pytania dotyczace zdrowia i historii podrozy</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Czego NIE potrzebujesz</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
+            <li>Zaproszenia od osoby w Kanadzie</li>
+            <li>Rezerwacji hotelu (nie jest wymagana, ale moze byc przydatna)</li>
+            <li>Biletu lotniczego (mozesz zlozyc wniosek przed zakupem biletu)</li>
+            <li>Ubezpieczenia podroznego (zalecane, ale nie wymagane do eTA)</li>
+            <li>Wizyty w ambasadzie lub centrum wizowym</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Dokumenty dla dzieci</h2>
+          <p className="text-gray-600 leading-relaxed mb-4">
+            Kazde dziecko podrozujace do Kanady musi posiadac wlasne
+            eTA Kanada, niezaleznie od wieku. Wymagany jest odrebny, wazny paszport
+            dziecka. Wniosek w imieniu dziecka musi zlozyc rodzic
+            lub opiekun prawny.
+          </p>
+          <div className="bg-gray-50 border-l-4 border-[#8B1A1A] p-4 rounded-r text-sm text-gray-700">
+            <strong>Wskazowka:</strong> Przed rozpoczeciem procesu upewnij sie,
+            ze Twoj paszport jest wazny, masz dzialajacy adres e-mail i przygotowana metode platnosci.
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link
+              href="/eta-info/application/"
+              className="bg-[#8B1A1A] hover:bg-[#0a3a6b] text-white px-6 py-3 rounded font-bold text-sm transition text-center"
+            >
+              Jak zlozyc wniosek &rarr;
+            </Link>
+            <a
+              href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full max-w-md mx-auto bg-[#8d1812] hover:bg-[#6d120e] rounded-xl border-2 border-white py-5 px-6 text-center transition shadow-lg"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <span className="text-white text-lg font-bold" style={{ color: "white" }}>Zloz wniosek eTA Kanada</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

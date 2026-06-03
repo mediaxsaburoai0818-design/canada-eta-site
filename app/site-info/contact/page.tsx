@@ -1,115 +1,176 @@
-import type { Metadata } from "next";
-import PageHero from "@/components/PageHero";
-import Breadcrumb from "@/components/Breadcrumb";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Kontakt — Canada eTA Online",
-  description: "Skontaktuj się z nami w sprawie pytań dotyczących eTA do Kanady. Formularz kontaktowy i dane kontaktowe.",
-};
+import { useState } from "react";
+import Link from "next/link";
 
-export default function ContactPage() {
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  const inputClass =
+    "w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-[#8B1A1A] focus:ring-1 focus:ring-[#8B1A1A] transition";
+
+  if (submitted) {
+    return (
+      <div className="max-w-4xl mx-auto px-6 py-16 text-center">
+        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg
+            className="w-8 h-8 text-green-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+        </div>
+        <h1
+          className="text-2xl font-bold text-[#1F1A14] mb-4"
+          style={{ fontFamily: "var(--font-noto-serif), serif" }}
+        >
+          Wiadomosc wyslana
+        </h1>
+        <p className="text-gray-600 mb-6">
+          Dziekujemy za kontakt. Odpowiemy najszybciej, jak to mozliwe.
+        </p>
+        <Link
+          href="/"
+          className="inline-block bg-[#8B1A1A] hover:bg-[#0a3a6b] text-white px-6 py-2 rounded font-bold text-sm transition"
+        >
+          Strona glowna
+        </Link>
+      </div>
+    );
+  }
+
   return (
-    <>
-      <PageHero
-        title="Kontakt"
-        subtitle="Masz pytania? Skontaktuj się z nami"
-      />
-      <Breadcrumb items={[{ label: "Informacje o stronie", href: "/site-info/about/" }, { label: "Kontakt" }]} />
+    <div>
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 pt-12 pb-8">
+          <nav className="text-sm text-gray-500 mb-8">
+            <Link href="/" className="hover:text-[#1F1A14]">
+              Strona glowna
+            </Link>
+            <span className="mx-1">/</span>
+            <span className="text-gray-800">Kontakt</span>
+          </nav>
 
-      <section className="py-12 md:py-16">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8">
+          <h1
+            className="text-3xl md:text-4xl font-bold text-[#1F1A14] mb-4"
+            style={{ fontFamily: "var(--font-noto-serif), serif" }}
+          >
+            Kontakt
+          </h1>
+          <p className="text-gray-600">
+            Masz pytanie dotyczace eTA Kanada lub naszego serwisu? Wypelnij formularz
+            ponizej.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <h2 className="text-2xl font-bold text-[#1a1a1a] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Napisz do nas
-              </h2>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Masz pytania dotyczące eTA do Kanady? Chętnie pomożemy. Wypełnij formularz kontaktowy lub skorzystaj z danych kontaktowych poniżej.
-              </p>
-
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">📧</span>
-                  <div>
-                    <div className="font-bold text-[#1a1a1a] text-sm">E-mail</div>
-                    <div className="text-gray-600">info@canada-eta-online.com</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">🕐</span>
-                  <div>
-                    <div className="font-bold text-[#1a1a1a] text-sm">Godziny odpowiedzi</div>
-                    <div className="text-gray-600">Pon-Pt: 9:00 - 17:00 (CET)</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">⏳</span>
-                  <div>
-                    <div className="font-bold text-[#1a1a1a] text-sm">Czas odpowiedzi</div>
-                    <div className="text-gray-600">Zazwyczaj w ciągu 24-48 godzin</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
-                <p className="text-sm text-gray-700">
-                  <strong>Uwaga:</strong> Nie jesteśmy oficjalną stroną rządu Kanady. W sprawie statusu wniosku o eTA prosimy kontaktować się bezpośrednio z IRCC.
-                </p>
-              </div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Imie i nazwisko *
+              </label>
+              <input
+                type="text"
+                required
+                className={inputClass}
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+              />
             </div>
-
             <div>
-              <div className="bg-[#FFF5F5] rounded-xl p-6 border border-red-100">
-                <h3 className="text-xl font-bold text-[#1a1a1a] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  Formularz kontaktowy
-                </h3>
-                <form className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Imię i nazwisko</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#8B0000] focus:ring-1 focus:ring-[#8B0000] bg-white"
-                      placeholder="Jan Kowalski"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Adres e-mail</label>
-                    <input
-                      type="email"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#8B0000] focus:ring-1 focus:ring-[#8B0000] bg-white"
-                      placeholder="jan@example.com"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Temat</label>
-                    <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#8B0000] focus:ring-1 focus:ring-[#8B0000] bg-white">
-                      <option>Pytanie ogólne o eTA</option>
-                      <option>Proces aplikacyjny</option>
-                      <option>Problemy z wnioskiem</option>
-                      <option>Sugestie dotyczące strony</option>
-                      <option>Inne</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Wiadomość</label>
-                    <textarea
-                      rows={5}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#8B0000] focus:ring-1 focus:ring-[#8B0000] bg-white resize-none"
-                      placeholder="Twoja wiadomość..."
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-[#8B0000] text-white py-3 rounded-lg font-bold hover:bg-[#6B0000] transition-colors"
-                  >
-                    Wyślij wiadomość
-                  </button>
-                </form>
-              </div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Adres e-mail *
+              </label>
+              <input
+                type="email"
+                required
+                className={inputClass}
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+              />
             </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Temat *
+              </label>
+              <input
+                type="text"
+                required
+                className={inputClass}
+                value={formData.subject}
+                onChange={(e) =>
+                  setFormData({ ...formData, subject: e.target.value })
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Wiadomosc *
+              </label>
+              <textarea
+                required
+                rows={6}
+                className={inputClass}
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
+              />
+            </div>
+            <button
+              type="submit"
+              className="bg-[#8B1A1A] hover:bg-[#0a3a6b] text-white px-6 py-2.5 rounded font-bold text-sm transition"
+            >
+              Wyslij wiadomosc
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <div className="bg-gray-50 border border-gray-200 rounded p-4 text-sm text-gray-500">
+            <p>
+              <strong>Uwaga:</strong> Nie jestesmy w stanie udzielic informacji
+              na temat statusu konkretnego wniosku eTA Kanada. W sprawie statusu
+              wniosku prosimy o kontakt z{" "}
+              <a
+                href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta.html"
+                className="text-[#1F1A14] underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Immigration, Refugees and Citizenship Canada (IRCC)
+              </a>
+              .
+            </p>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

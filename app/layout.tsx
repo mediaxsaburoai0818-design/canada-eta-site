@@ -1,11 +1,40 @@
 import type { Metadata } from "next";
+import { Noto_Sans, Noto_Serif } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+const notoSans = Noto_Sans({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-noto-sans",
+  weight: ["400", "500", "700"],
+  display: "swap",
+});
+
+const notoSerif = Noto_Serif({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-noto-serif",
+  weight: ["400", "700"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Canada eTA Online — Elektroniczna Autoryzacja Podróży do Kanady",
-  description: "Oficjalny przewodnik po kanadyjskiej eTA (Electronic Travel Authorization) dla obywateli Polski. Informacje o wymaganiach, opłatach i procesie aplikacyjnym.",
+  title: {
+    default: "Canada eTA Online 2026 | Polskojezyczny przewodnik krok po kroku",
+    template: "%s ‐ Canada eTA Online",
+  },
+  description:
+    "Polskojezyczny kompletny przewodnik Canada eTA 2026. Oplata $7 CAD, waznosc do 5 lat lub do wygasniecia paszportu. Decyzja zwykle w kilka minut, zalecane zlozenie wniosku przed wyjazdem.",
+  keywords:
+    "Canada eTA, Canada eTA 2026, Kanada, electronic Travel Authorization, wniosek eTA, Polska, oplata 7 CAD",
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: "Canada eTA Online 2026 | Polskojezyczny przewodnik krok po kroku",
+    description:
+      "Polskojezyczny kompletny przewodnik Canada eTA 2026. Oplata $7 CAD, waznosc do 5 lat lub do wygasniecia paszportu. Decyzja zwykle w kilka minut, zalecane zlozenie wniosku przed wyjazdem.",
+    locale: "pl_PL",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -14,20 +43,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl" className="h-full antialiased">
+    <html lang="pl">
       <head>
-        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta
+          httpEquiv="Cache-Control"
+          content="no-cache, no-store, must-revalidate"
+        />
         <meta httpEquiv="Pragma" content="no-cache" />
         <meta httpEquiv="Expires" content="0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body
+        className={`${notoSans.variable} ${notoSerif.variable} antialiased`}
+      >
         <Header />
-        <main className="flex-1">
-          {children}
-        </main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>

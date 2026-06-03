@@ -1,137 +1,171 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
-import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Jak złożyć wniosek o eTA do Kanady — Canada eTA Online",
-  description: "Krok po kroku: jak złożyć wniosek o elektroniczną autoryzację podróży (eTA) do Kanady. Wymagane dokumenty, opłata CAD $7 i czas przetwarzania.",
+  title: "Jak zlozyc wniosek Canada eTA 2026 - przewodnik krok po kroku",
+  description:
+    "Jak zlozyc wniosek o Canada eTA krok po kroku — od zgromadzenia dokumentow do zatwierdzenia. Najczesciej decyzja w kilka minut, czasem do 72 godzin.",
 };
 
-export default function ApplicationPage() {
+export default function Application() {
   return (
-    <>
-      <PageHero
-        title="Jak złożyć wniosek o eTA?"
-        subtitle="Przewodnik krok po kroku dla obywateli Polski"
-      />
-      <Breadcrumb items={[{ label: "Informacje o eTA", href: "/eta-info/what-is-eta/" }, { label: "Jak złożyć wniosek" }]} />
-
-      <section className="py-12 md:py-16">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-[#FFF5F5] border-l-4 border-[#8B0000] p-6 rounded-r-xl mb-8">
-            <p className="text-gray-700 leading-relaxed m-0">
-              Wniosek o eTA składa się wyłącznie online, na oficjalnej stronie rządu Kanady. Cały proces trwa kilka minut, a większość wniosków jest rozpatrywana niemal natychmiast.
-            </p>
-          </div>
-
-          <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-6 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Przed rozpoczęciem — co przygotować
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-4 mb-8">
-            {[
-              { icon: "🛂", title: "Ważny paszport", desc: "Polski paszport biometryczny z co najmniej 6-miesięcznym okresem ważności." },
-              { icon: "📧", title: "Adres e-mail", desc: "Aktywny adres e-mail, na który otrzymasz potwierdzenie eTA." },
-              { icon: "💳", title: "Karta płatnicza", desc: "Karta kredytowa lub debetowa (Visa, Mastercard, American Express) do opłaty CAD $7." },
-              { icon: "📋", title: "Dane osobowe", desc: "Informacje o zatrudnieniu, adres zamieszkania i szczegóły podróży." },
-            ].map((item, i) => (
-              <div key={i} className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
-                <span className="text-3xl mb-3 block">{item.icon}</span>
-                <h3 className="font-bold text-[#1a1a1a] mb-1">{item.title}</h3>
-                <p className="text-sm text-gray-600">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-6 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Proces aplikacyjny krok po kroku
-          </h2>
-
-          <div className="space-y-6 mb-10">
-            {[
-              {
-                step: 1,
-                title: "Wejdź na oficjalną stronę",
-                desc: "Odwiedź oficjalną stronę rządu Kanady poświęconą eTA. Unikaj nieoficjalnych stron pośredników, które mogą pobierać dodatkowe opłaty.",
-                link: { text: "Oficjalna strona eTA →", href: "/eta-info/official-canada/" },
-              },
-              {
-                step: 2,
-                title: "Wypełnij formularz",
-                desc: "Podaj dane osobowe, informacje z paszportu, szczegóły podróży oraz dane kontaktowe. Formularz jest dostępny w języku angielskim i francuskim.",
-              },
-              {
-                step: 3,
-                title: "Dokonaj płatności",
-                desc: "Opłata wynosi CAD $7 (około 22 PLN). Płatność jest niezbędna do złożenia wniosku. Akceptowane są karty Visa, Mastercard i American Express.",
-              },
-              {
-                step: 4,
-                title: "Poczekaj na decyzję",
-                desc: "Większość wniosków jest rozpatrywana w ciągu kilku minut. W niektórych przypadkach przetwarzanie może potrwać do kilku dni. Otrzymasz powiadomienie e-mailowe.",
-              },
-              {
-                step: 5,
-                title: "Sprawdź potwierdzenie",
-                desc: "Po zatwierdzeniu otrzymasz e-mail z potwierdzeniem. eTA jest elektronicznie powiązana z Twoim paszportem — nie musisz drukować żadnych dokumentów.",
-              },
-            ].map((item) => (
-              <div key={item.step} className="flex gap-6 items-start">
-                <div className="flex-shrink-0 w-12 h-12 bg-[#8B0000] text-white rounded-full flex items-center justify-center text-lg font-bold">
-                  {item.step}
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-[#1a1a1a] mb-2">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.desc}</p>
-                  {item.link && (
-                    <Link href={item.link.href} className="text-[#8B0000] font-medium mt-2 inline-block hover:underline">
-                      {item.link.text}
-                    </Link>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-6 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Ważne wskazówki
-          </h2>
-          <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 mb-8">
-            <ul className="space-y-3">
-              {[
-                "Upewnij się, że wpisujesz dane paszportowe dokładnie tak, jak widnieją w paszporcie.",
-                "Błędne dane mogą spowodować odmowę wjazdu na lotnisku.",
-                "Składaj wniosek na oficjalnej stronie rządu Kanady — unikaj stron pośredników.",
-                "eTA jest powiązana z konkretnym paszportem — nowy paszport wymaga nowej eTA.",
-                "Złóż wniosek przed zakupem biletu lotniczego.",
-              ].map((tip, i) => (
-                <li key={i} className="flex items-start gap-3 text-gray-700">
-                  <span className="text-yellow-600 mt-0.5">⚠️</span>
-                  {tip}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <h2 className="text-2xl font-bold text-[#1a1a1a] mt-10 mb-6 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Co po otrzymaniu eTA?
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Po zatwierdzeniu eTA nie musisz drukować żadnych dokumentów — autoryzacja jest elektronicznie powiązana z Twoim paszportem. Przy odprawie na lotnisku linia lotnicza automatycznie weryfikuje Twoją eTA. Na granicy kanadyjskiej funkcjonariusz może zadać dodatkowe pytania dotyczące celu i długości Twojej wizyty.
+    <div>
+      {/* Header */}
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 pt-12 pb-8">
+          <Breadcrumb
+            items={[
+              { label: "Informacje o eTA Kanada", href: "/eta-info/what-is-eta/" },
+              { label: "Sposob skladania wniosku" },
+            ]}
+          />
+          <h1
+            className="text-3xl md:text-4xl font-bold text-[#1F1A14] mb-6"
+            style={{ fontFamily: "var(--font-noto-serif), serif" }}
+          >
+            Sposob skladania wniosku eTA Kanada
+          </h1>
+          <p className="text-gray-600 mb-6 leading-relaxed">
+            Wniosek o eTA Kanada mozna zlozyc wylacznie online przez oficjalna strone rzadu Kanady. Ponizej przedstawiamy szczegolowy przewodnik po calej procedurze.
           </p>
+          <img
+            src="https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=800&q=80"
+            alt="Paszport i dokumenty podrozne do Kanady"
+            className="w-full h-56 object-cover rounded"
+          />
+        </div>
+      </section>
 
-          <div className="grid sm:grid-cols-2 gap-4 mt-8">
-            <Link href="/eta-info/fee/" className="bg-[#FFF5F5] p-5 rounded-xl border border-red-100 hover:border-[#8B0000]/30 transition-colors group">
-              <h3 className="font-bold text-[#1a1a1a] group-hover:text-[#8B0000] transition-colors">Opłaty za eTA →</h3>
-              <p className="text-sm text-gray-500 mt-1">Szczegóły dotyczące kosztów</p>
-            </Link>
-            <Link href="/eta-info/required-documents/" className="bg-[#FFF5F5] p-5 rounded-xl border border-red-100 hover:border-[#8B0000]/30 transition-colors group">
-              <h3 className="font-bold text-[#1a1a1a] group-hover:text-[#8B0000] transition-colors">Wymagane dokumenty →</h3>
-              <p className="text-sm text-gray-500 mt-1">Lista potrzebnych dokumentów</p>
-            </Link>
+      {/* Section 1 */}
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Przed rozpoczeciem &mdash; co przygotowac</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
+            <li>Paszport biometryczny (e-paszport) &mdash; wazny</li>
+            <li>Komputer lub urzadzenie mobilne z dostepem do internetu</li>
+            <li>Adres e-mail</li>
+            <li>Karta platnicza (Visa, Mastercard, American Express)</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Section 2 */}
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Krok 1: Wejdz na oficjalna strone rzadu Kanady</h2>
+          <p className="text-gray-600 leading-relaxed">
+            Proces skladania wniosku odbywa sie w calosci online. Wejdz na oficjalna strone internetowa{" "}
+            <a
+              href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#1F1A14] underline"
+            >
+              Immigration, Refugees and Citizenship Canada (IRCC)
+            </a>
+            .
+          </p>
+        </div>
+      </section>
+
+      {/* Section 3 */}
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Krok 2: Przygotuj dane z paszportu</h2>
+          <p className="text-gray-600 leading-relaxed mb-4">
+            Bedziesz musial recznie wprowadzic dane ze swojego paszportu, takie jak numer paszportu, date wydania i waznosci, imie, nazwisko i date urodzenia. Upewnij sie, ze wszystkie dane sa wprowadzone dokladnie tak, jak w paszporcie.
+          </p>
+          <div className="bg-white border-l-4 border-[#8B1A1A] p-4 rounded-r text-sm text-gray-600">
+            <strong>Wskazowka:</strong> Dokladnie sprawdz wszystkie wprowadzone dane. Jakiekolwiek bledy moga spowodowac opoznienia lub odrzucenie wniosku.
           </div>
         </div>
       </section>
-    </>
+
+      {/* Section 4 */}
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Krok 3: Wypelnij formularz wniosku</h2>
+          <p className="text-gray-600 leading-relaxed">
+            Wypelnij formularz online, podajac swoje dane osobowe, informacje kontaktowe oraz odpowiadajac na pytania dotyczace celu podrozy i historii imigracyjnej.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 5 */}
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Krok 4: Odpowiedz na pytania bezpieczenstwa</h2>
+          <p className="text-gray-600 leading-relaxed">
+            Formularz zawiera kilka pytan weryfikacyjnych dotyczacych Twojej przeszlosci, np. karalnosci czy wczesniejszych odmow wjazdu do Kanady. Odpowiadaj na nie zgodnie z prawda.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 6 */}
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Krok 5: Dokonaj platnosci (CAD $7)</h2>
+          <p className="text-gray-600 leading-relaxed">
+            Oplata za wniosek eTA wynosi CAD $7. Zaplac ja za pomoca karty kredytowej lub debetowej (Visa, Mastercard, American Express). Platnosc jest przetwarzana natychmiast.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 7 */}
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Krok 6: Oczekuj na zatwierdzenie</h2>
+          <p className="text-gray-600 leading-relaxed">
+            Po zlozeniu wniosku i dokonaniu oplaty otrzymasz potwierdzenie na e-mail. Wiekszosc wnioskow jest zatwierdzana w ciagu kilku minut. W niektorych przypadkach weryfikacja moze potrwac kilka dni. Otrzymasz powiadomienie e-mail o decyzji.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 8 */}
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">Po zatwierdzeniu</h2>
+          <p className="text-gray-600 leading-relaxed mb-4">
+            eTA jest powiazana elektronicznie z Twoim paszportem &mdash; nie musisz drukowac zadnych dokumentow. Linie lotnicze i sluzby graniczne automatycznie weryfikuja Twoja eTA podczas odprawy.
+          </p>
+          <div className="bg-red-50 border-l-4 border-[#8d1812] p-4 rounded-r text-sm text-gray-600">
+            <strong>Uwaga:</strong> Skladaj wniosek wylacznie na oficjalnej stronie rzadu Kanady{" "}
+            <a
+              href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta.html"
+              className="text-[#1F1A14] underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              canada.ca
+            </a>
+            . Uwazaj na strony posrednikow, ktore pobieraja znacznie wyzsze oplaty za te sama usluge.
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link
+              href="/eta-info/fee/"
+              className="bg-[#8B1A1A] hover:bg-[#0a3a6b] text-white px-6 py-3 rounded font-bold text-sm transition text-center"
+            >
+              Sprawdz oplaty &rarr;
+            </Link>
+            <a
+              href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full max-w-md mx-auto bg-[#8d1812] hover:bg-[#6d120e] rounded-xl border-2 border-white py-5 px-6 text-center transition shadow-lg"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <span className="text-white text-lg font-bold" style={{ color: "white" }}>Zloz wniosek eTA Kanada</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

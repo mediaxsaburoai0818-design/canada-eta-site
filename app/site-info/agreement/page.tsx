@@ -1,89 +1,125 @@
-import type { Metadata } from "next";
-import PageHero from "@/components/PageHero";
+import { Metadata } from "next";
+import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Regulamin — Canada eTA Online",
-  description: "Regulamin korzystania z serwisu Canada eTA Online. Warunki użytkowania, ograniczenia odpowiedzialności i prawa autorskie.",
+  title: "Regulamin - eTA Kanada Online",
+  description: "Regulamin korzystania z serwisu eTA Kanada Online. Warunki uzytkowania strony.",
 };
 
-export default function AgreementPage() {
+export default function Agreement() {
   return (
-    <>
-      <PageHero
-        title="Regulamin"
-        subtitle="Warunki korzystania z serwisu"
-      />
-      <Breadcrumb items={[{ label: "Informacje o stronie", href: "/site-info/about/" }, { label: "Regulamin" }]} />
-
-      <section className="py-12 md:py-16">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="prose prose-lg max-w-none text-gray-700">
-            <p className="text-sm text-gray-500 mb-8">Ostatnia aktualizacja: 13 kwietnia 2026</p>
-
-            <h2 className="text-2xl font-bold text-[#1a1a1a] mt-8 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              1. Postanowienia ogólne
-            </h2>
-            <p className="leading-relaxed mb-6">
-              Niniejszy regulamin określa zasady korzystania z serwisu Canada eTA Online. Korzystając z naszej strony, akceptujesz niniejsze warunki. Jeśli nie zgadzasz się z regulaminem, prosimy o zaprzestanie korzystania ze strony.
-            </p>
-
-            <h2 className="text-2xl font-bold text-[#1a1a1a] mt-8 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              2. Charakter serwisu
-            </h2>
-            <p className="leading-relaxed mb-6">
-              Canada eTA Online jest niezależnym serwisem informacyjnym. <strong>Nie jesteśmy stroną rządu Kanady</strong> ani żadnej instytucji rządowej. Nie pośredniczymy w składaniu wniosków o eTA. Wszystkie informacje zawarte na stronie mają charakter orientacyjny i nie stanowią porady prawnej, imigracyjnej ani podatkowej.
-            </p>
-
-            <h2 className="text-2xl font-bold text-[#1a1a1a] mt-8 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              3. Ograniczenie odpowiedzialności
-            </h2>
-            <p className="leading-relaxed mb-4">Nie ponosimy odpowiedzialności za:</p>
-            <ul className="space-y-2 mb-6">
-              <li className="flex items-start gap-2"><span className="text-[#8B0000]">•</span>Decyzje podjęte na podstawie informacji zawartych na stronie</li>
-              <li className="flex items-start gap-2"><span className="text-[#8B0000]">•</span>Odmowę wydania eTA lub odmowę wjazdu do Kanady</li>
-              <li className="flex items-start gap-2"><span className="text-[#8B0000]">•</span>Ewentualne nieścisłości w prezentowanych informacjach</li>
-              <li className="flex items-start gap-2"><span className="text-[#8B0000]">•</span>Działanie stron zewnętrznych, do których prowadzimy linki</li>
-              <li className="flex items-start gap-2"><span className="text-[#8B0000]">•</span>Szkody wynikłe z korzystania lub niemożności korzystania ze strony</li>
-            </ul>
-
-            <h2 className="text-2xl font-bold text-[#1a1a1a] mt-8 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              4. Prawa autorskie
-            </h2>
-            <p className="leading-relaxed mb-6">
-              Wszystkie treści zawarte na stronie Canada eTA Online, w tym teksty, grafiki, logotypy i układ strony, są chronione prawem autorskim. Zabrania się kopiowania, rozpowszechniania lub wykorzystywania treści bez uprzedniej pisemnej zgody administratora.
-            </p>
-
-            <h2 className="text-2xl font-bold text-[#1a1a1a] mt-8 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              5. Linki zewnętrzne
-            </h2>
-            <p className="leading-relaxed mb-6">
-              Nasza strona zawiera linki do stron zewnętrznych, w tym oficjalnych stron rządu Kanady. Nie ponosimy odpowiedzialności za treści, politykę prywatności ani praktyki stron zewnętrznych. Zalecamy zapoznanie się z regulaminem każdej odwiedzanej strony.
-            </p>
-
-            <h2 className="text-2xl font-bold text-[#1a1a1a] mt-8 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              6. Zmiany regulaminu
-            </h2>
-            <p className="leading-relaxed mb-6">
-              Zastrzegamy sobie prawo do zmiany niniejszego regulaminu w dowolnym momencie. Zmiany wchodzą w życie z chwilą publikacji na stronie. Kontynuacja korzystania ze strony po opublikowaniu zmian oznacza akceptację zaktualizowanego regulaminu.
-            </p>
-
-            <h2 className="text-2xl font-bold text-[#1a1a1a] mt-8 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              7. Prawo właściwe
-            </h2>
-            <p className="leading-relaxed mb-6">
-              Niniejszy regulamin podlega prawu polskiemu. Wszelkie spory wynikające z korzystania ze strony będą rozstrzygane przez właściwe sądy polskie.
-            </p>
-
-            <h2 className="text-2xl font-bold text-[#1a1a1a] mt-8 mb-4 pb-2 border-b-2 border-[#8B0000]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              8. Kontakt
-            </h2>
-            <p className="leading-relaxed mb-6">
-              W razie pytań dotyczących regulaminu prosimy o kontakt za pośrednictwem formularza kontaktowego na naszej stronie.
-            </p>
-          </div>
+    <div>
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 pt-12 pb-8">
+          <Breadcrumb
+            items={[
+              { label: "Informacje o stronie", href: "/site-info/about/" },
+              { label: "Regulamin" },
+            ]}
+          />
+          <h1
+            className="text-3xl md:text-4xl font-bold text-[#1F1A14] mb-4"
+            style={{ fontFamily: "var(--font-noto-serif), serif" }}
+          >
+            Regulamin
+          </h1>
+          <p className="text-sm text-gray-500">Ostatnia aktualizacja: kwiecien 2026</p>
         </div>
       </section>
-    </>
+
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">1. Postanowienia ogolne</h2>
+          <p className="text-gray-600 leading-relaxed text-sm">
+            Niniejszy regulamin okresla zasady korzystania z serwisu eTA Kanada Online.
+            Korzystajac z serwisu, uzytkownik akceptuje ponizsze warunki.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">2. Charakter serwisu</h2>
+          <p className="text-gray-600 leading-relaxed text-sm">
+            eTA Kanada Online jest serwisem informacyjnym. Nie jest oficjalna strona
+            Immigration, Refugees and Citizenship Canada (IRCC) ani zadnej agencji rzadowej. Informacje
+            zawarte w serwisie maja charakter wylacznie informacyjny i nie
+            stanowia porady prawnej ani imigracyjnej.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">3. Uslugi</h2>
+          <p className="text-gray-600 text-sm mb-3">Serwis swiadczy nastepujace uslugi:</p>
+          <ul className="list-disc list-inside space-y-1 text-gray-600 text-sm">
+            <li>Informacje o systemie eTA Kanada</li>
+            <li>Przewodniki dotyczace procedury skladania wniosku</li>
+            <li>Odpowiedzi na czesto zadawane pytania</li>
+            <li>Informacje o polskiej spolecznosci w Kanadzie</li>
+            <li>Formularz kontaktowy do zapytan</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">4. Odpowiedzialnosc</h2>
+          <p className="text-gray-600 leading-relaxed text-sm">
+            Operator serwisu doklada starannosci w celu zapewnienia aktualnosci i
+            prawidlowosci informacji, jednak nie ponosi odpowiedzialnosci za
+            ewentualne bledy, nieaktualnosc danych lub szkody wynikajace z
+            korzystania z serwisu. Uzytkownik powinien zawsze weryfikowac
+            informacje na oficjalnej stronie https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta.html.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">5. Prawa autorskie</h2>
+          <p className="text-gray-600 leading-relaxed text-sm">
+            Tresc serwisu, w tym teksty, grafiki i uklad strony, jest chroniona
+            prawem autorskim. Kopiowanie, rozpowszechnianie lub wykorzystywanie
+            tresci bez zgody operatora jest zabronione.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">6. Linki zewnetrzne</h2>
+          <p className="text-gray-600 leading-relaxed text-sm">
+            Serwis moze zawierac linki do stron zewnetrznych. Operator nie ponosi
+            odpowiedzialnosci za tresc i polityki prywatnosci stron zewnetrznych.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">7. Zmiany regulaminu</h2>
+          <p className="text-gray-600 leading-relaxed text-sm">
+            Operator zastrzega sobie prawo do zmiany regulaminu w kazdym czasie.
+            Zmiany wchodza w zycie z chwila publikacji na stronie.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <h2 className="heading-band mb-6">8. Kontakt</h2>
+          <p className="text-gray-600 leading-relaxed text-sm">
+            W sprawach dotyczacych regulaminu prosimy o kontakt poprzez{" "}
+            <Link href="/site-info/contact/" className="text-[#1F1A14] underline">
+              formularz kontaktowy
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+    </div>
   );
 }
